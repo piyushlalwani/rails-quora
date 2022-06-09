@@ -9,8 +9,8 @@
       <div style="margin-bottom: 15px;">
         <div class="votes-container">
           <div class="icons"> 
-            <%= link_to "<div class='vote-icon-container'>^</div>".html_safe, vote_post_answer_url(@post, answer.id), method: "post", class: "voting-icon"  %> 
-            <%= link_to "<div class='vote-icon-container' style='transform: rotate(180deg); display: inline-block;'>^</div>".html_safe, devote_post_answer_url(@post, answer.id), method: "post", class: "voting-icon" %>
+            <%= link_to "<div class='vote-icon-container'>^</div>".html_safe, vote_post_answer_path(@post, answer.id), method: "post", class: "voting-icon"  %> 
+            <%= link_to "<div class='vote-icon-container' style='transform: rotate(180deg); display: inline-block;'>^</div>".html_safe, devote_post_answer_path(@post, answer.id), method: "post", class: "voting-icon" %>
           </div>
           <div class="count"><%= answer.votes %></div>
           <div class="answer-details">
