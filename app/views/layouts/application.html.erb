@@ -7,8 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href='<%= root_path %>'>
+        <%= image_tag "logo.jpeg", alt: "Avatar Logo", style: "width:40px;", class: "rounded-pill" %>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href='<%= root_path %>'><h2>Quora</h2></a>
+          </li>
+        </ul>
+      </div>
+      <% if logged_in? %>
+        <ul class="nav navbar-right ">
+  	      <li><%= link_to 'Post Question', new_post_path %></li>
+          <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
+        </ul>
+      <% else %>
+        <ul class="nav navbar-right ">
+          <li><%= link_to "Log in", login_path, class: "mx-2" %></li> 
+          <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
+  <div class='container'>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
