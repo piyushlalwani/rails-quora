@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center">
+  <div class="row justify-content-md-center h-100">
+    <div class="card-wrapper">
+      <div class="card mt-5 p-4">
+        <div class="card-body">
+          <h4 class="card-title">Sign up</h4>
+            <%= form_for @user, html: {class: "nifty_form"}, local: true do |f| %>
+              <%= render 'shared/error_messages' %>
+              <div class="form-group">
+                <label for="email">E-Mail Address</label>
+                <%= f.text_field :email, class: 'mb-1 form-control' %>
+              </div>
+              <div class="form-group">
+                <label for="password">First Name</label>
+                <%= f.text_field :first_name, class: 'mb-1 form-control' %>
+              </div>
+              <div class="form-group">
+                <label for="password">Last Name</label>
+                <%= f.text_field :last_name, class: 'mb-1 form-control' %>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <%= f.password_field :password, class: 'mb-1 form-control' %>
+              </div>
+              <div class="form-group">
+                <label for="password">Password Confirmation</label>
+                <%= f.password_field :password_confirmation, class: 'mb-1 form-control' %>
+              </div>
+
+              <div class="form-group m-0">
+                <%= f.submit "Create my account", class: "btn btn-primary btn-block mt-3" %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
