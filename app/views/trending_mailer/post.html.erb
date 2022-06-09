@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p> Dear Followers: </p>
+    <p> Those are the lastest entries to our platform. We invite you to read and share everything we did on this week. </p>
+    <br/>
+    <% @posts.each do |post| %>
+      <p><strong><%= post.title %></strong></p>
+      <p><%= post.description %></p>
+      <hr/>
+    <% end %>
+    <p>Thanks and Regards,</p>
+    <p>Team Quora</p>
+  </body>
+</html>
