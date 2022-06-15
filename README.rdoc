@@ -1,28 +1,22 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version - `2.6.9`
 
-Things you may want to cover:
+* System dependencies - `memcached, sidekiq, redis, mysql, elasticsearch`
 
-* Ruby version
+* Database creation - `rake db:migrate`
 
-* System dependencies
+* Start server - `rails s`
 
-* Configuration
+* Run sidekiq - `sidekiq run`
 
-* Database creation
+* Features -
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  1. Should be able to signup multiple users.
+  2. Each user can post new questions.
+  3. A questions feed, which displays all the latest questions.
+  4. A user can answer to a question (or) upvote an answer.
+  5. A homepage which displays the questions and their answers sorted by popularity (like many upvotes)
+  6. Search functionality, where we can search for questions. Use Elasticsearch.
+  7. Emails every week for users about popular questions and answers.
+  
