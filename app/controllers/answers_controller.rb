@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  before_action :find_post
+
   def create
-    @post = Post.find(params[:post_id])
     create_answer(@post)
 
     redirect_to post_path(@post)
   end
 
   def answer
-    @post = Post.find(params[:post_id])
     @answer = Answer.find(params[:id])
     create_answer(@answer)
 
@@ -17,8 +17,6 @@ class AnswersController < ApplicationController
   end
 
   def vote
-    @post = Post.find(params[:post_id])
-
     @answer = Answer.find(params[:id])
     current_votes = @answer.votes
     @answer.update(votes: current_votes + 1)
@@ -27,8 +25,6 @@ class AnswersController < ApplicationController
   end
 
   def devote
-    @post = Post.find(params[:post_id])
-
     @answer = Answer.find(params[:id])
     current_votes = @answer.votes
     @answer.update(votes: current_votes - 1)
@@ -37,6 +33,10 @@ class AnswersController < ApplicationController
   end
 
   private
+
+  def find_post
+    @post = Post.find(params[:post_id])
+  end
 
   def answer_params
     params.require(:answer).permit(:description)

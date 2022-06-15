@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20220609052623) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "description"
-    t.integer  "votes",           default: 0, null: false
+    t.integer  "votes", default: 0, null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

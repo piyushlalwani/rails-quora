@@ -34,7 +34,7 @@
           <%= form_tag answer_post_answer_path(@post, answer), :method => :post do %>
             <%= label_tag 'Reply to answer' %>
             <%= text_area_tag 'answer[description]', "", class: 'form-control', placeholder: "Reply...." %>
-            <%= submit_tag "Reply", { class: "mt-2 btn btn-primary" } %>
+            <%= submit_tag "Reply", { class: "mt-2 btn btn-primary", disabled: !logged_in? } %>
           <% end %>
         </div>
       </div>
